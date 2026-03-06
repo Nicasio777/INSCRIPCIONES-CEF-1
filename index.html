@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="vista-lista">
+        <img src="URL_DE_TU_LOGO" alt="Logo CEF" id="logo">
+        <h1>Inscripciones CEF</h1>
+        <div id="lista-actividades" class="grid-actividades"></div>
+    </div>
+
+    <div id="vista-formulario" class="oculto">
+        <button onclick="volver()">← Volver a actividades</button>
+        <h2 id="titulo-form"></h2>
+        <form id="form-inscripcion">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="number" id="dni" placeholder="DNI" required>
+            <input type="tel" id="telefono" placeholder="WhatsApp" required>
+            <button type="submit">Confirmar Inscripción</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
