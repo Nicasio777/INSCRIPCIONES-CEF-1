@@ -32,7 +32,22 @@ document.getElementById('form-inscripcion').onsubmit = async (e) => {
         telefono: document.getElementById('telefono').value,
         actividad: window.actividadActual
     };
+    // Función para subir a Cloudinary y obtener el link
+async function subirArchivo() {
+  const file = document.getElementById('archivo').files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'TU_PRESET_DE_CLOUDINARY'); // Se obtiene en tu cuenta de Cloudinary
+
+  const res = await fetch('https://api.cloudinary.com/v1_1/TU_CLOUD_NAME/upload', {
+    method: 'POST',
+    body: formData
+  });
+  const data = await res.json();
+  return data.secure_url; // Este es el link que guardaremos en el Sheet
+}
     await fetch(URL_SCRIPT, { method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(datos) });
     alert("¡Inscripción exitosa!");
     location.reload();
+
 };
